@@ -1,0 +1,3 @@
+# Reverse order, removing items changes the size of the list.
+        # Working with a copy to leave the original value intact
+                # Converting the candidate to a list for mutability

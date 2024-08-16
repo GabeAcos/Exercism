@@ -1,0 +1,24 @@
+def find_anagrams(word, candidates):
+    word = word.lower()
+
+    # Thin out the possible candidates
+    for x in range(len(candidates) - 1, -1, -1):
+        candidate_lower = candidates[x].lower()
+        if len(candidate_lower) != len(word) or candidate_lower == word:
+            candidates.remove(candidates[x])
+
+    # Evaluating the remainder
+    for candidate in candidates:
+        candidate_lower = candidate.lower()
+        flag = True
+        candidate_list = list(candidate_lower)
+        for char in word:
+            if char not in candidate_list:
+                flag = False
+                break
+            else:
+                candidate_list.remove(char)
+        if len(candidate_list) != 0 or flag is False:
+            candidates.remove(candidate)
+
+    return candidates
